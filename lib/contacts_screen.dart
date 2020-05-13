@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_integration_test/contact.dart';
 import 'package:flutter_integration_test/contact_item.dart';
+import 'package:flutter_integration_test/contacts_detail_screen.dart';
 import 'package:flutter_integration_test/contacts_repository.dart';
 
 class ContactsScreen extends StatelessWidget {
@@ -24,6 +25,13 @@ class ContactsScreen extends StatelessWidget {
                 (context, index) {
                   return ContactItem(
                     contacts[index],
+                    onPressed: () {
+                      return Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (context) => ContactsDetailScreen(contacts[index]),
+                        ),
+                      );
+                    },
                   );
                 },
                 childCount: contacts.length,

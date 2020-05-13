@@ -12,7 +12,12 @@ class ContactsRepository {
         phone: _contactJsonToPhone(
           contact,
         ),
+        email: _contactJsonToEmail(contact),
         image: _contactJsonToImage(contact),
+        street: _contactJsonToStreet(contact),
+        city: _contactJsonToCity(contact),
+        state: _contactJsonToState(contact),
+        postcode: _contactJsonToPostcode(contact),
       );
     }).toList();
     return Future.value(contacts);
@@ -26,7 +31,27 @@ class ContactsRepository {
     return '${json['cell']}';
   }
 
+  String _contactJsonToEmail(dynamic json) {
+    return '${json['email']}';
+  }
+
   String _contactJsonToImage(dynamic json) {
     return '${json['picture']['large']}';
+  }
+
+  String _contactJsonToStreet(dynamic json) {
+    return '${json['location']['street']['number']} ${json['location']['street']['name']}';
+  }
+
+  String _contactJsonToCity(dynamic json) {
+    return '${json['location']['city']}';
+  }
+
+  String _contactJsonToState(dynamic json) {
+    return '${json['location']['state']}';
+  }
+
+  String _contactJsonToPostcode(dynamic json) {
+    return '${json['location']['postcode']}';
   }
 }
