@@ -11,7 +11,6 @@ class ContactsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
-      title: 'Contacts App',
       home: ContactsScreen(ContactsRepository()),
       debugShowCheckedModeBanner: false,
     );
