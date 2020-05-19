@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
@@ -106,7 +108,18 @@ void main() {
         await driver.waitFor(state);
         await driver.waitFor(postCodeLabel);
         await driver.waitFor(postCode);
+        await driver.screenshot();
         await driver.tap(backButton);
+      });
+
+      test('take a screenshot', () async {
+        final header = find.text('Contacts');
+        await driver.waitFor(header);
+
+        await Directory('screenshots').create();
+        final screenshot = await driver.screenshot();
+        final fileDescriptor = File('screenshots/contact_list.png');
+        fileDescriptor.writeAsBytes(screenshot);
       });
     },
   );
