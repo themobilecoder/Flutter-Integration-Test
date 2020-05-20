@@ -1,6 +1,12 @@
-# flutter_integration_test
+# Flutter Integration Test sample app
 
-Sample app with integration tests
+[<img src="res/integration-test-feature-image.png" width="500">](https://themobilecoder.com/how-to-write-integration-tests-in-flutter)
+
+## A basic contacts app to write integration tests on.
+
+This is the complete source code used in this [tutorial](https://themobilecoder.com/how-to-write-integration-tests-in-flutter) .
+
+<img src="res/contacts-app-demo.gif" height="400"><img src="res/integration-test-video.gif" height="400">
 
 ## Getting Started
 
